@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --bs-primary: #6610F2;
+    --bs-primary-rgb: 102, 16, 242;
+    --bs-btn-bg: #6610F2;
+    --bs-btn-border-color: #6610F2;
+    --bs-btn-hover-bg: #500BC1;
+    --bs-btn-hover-border-color: #500BC1;
+    --bs-btn-active-bg: #3C0891;
+    --bs-btn-active-border-color: #3C0891;
+  }
+
+body, html {
+    min-height: 100vh;
+}
+
+app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, p, span {
+    margin: 0;
+    padding: 0;
+  }
