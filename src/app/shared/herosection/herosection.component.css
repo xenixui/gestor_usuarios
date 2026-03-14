@@ -1,0 +1,6 @@
+.hero {
+    background-image: url('/images/bg-users.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, bottom right;
+    background-size: cover, auto;
+}

@@ -9,7 +9,7 @@ import { lastValueFrom } from 'rxjs';
 export class UsersService {
   private httpClient = inject(HttpClient);
 
-  private baseUrl: string = "https://peticiones.online/users";
+  private baseUrl: string = "https://peticiones.online/api/users";
 
   getAll(): Promise<IResponse> {
     return lastValueFrom(this.httpClient.get<IResponse>(this.baseUrl))

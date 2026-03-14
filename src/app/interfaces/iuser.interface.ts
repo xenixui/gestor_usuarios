@@ -3,7 +3,7 @@ export interface IResponse {
     per_page:    number;
     total:       number;
     total_pages: number;
-    data:     IUser[];
+    results:     IUser[];
 }
 
 export interface IUser {
