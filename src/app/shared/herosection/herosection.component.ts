@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input} from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,6 +8,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './herosection.component.css',
 })
 export class HerosectionComponent {
-  @Input() title: string = '';
-  @Input() subtitle: string = '';
+  title = input<string>('');
+  subtitle = input<string>('');
 }

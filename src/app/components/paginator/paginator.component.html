@@ -1,0 +1,13 @@
+<nav aria-label="Paginador">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" routerLinkActive="active" [routerLink]="['/home']" tabindex="-1">Anterior</a>
+        </li>
+        @for(page of pages(); track page) {
+            <li class="page-item"><a class="page-link" routerLinkActive="active" [routerLink]="['/home']">{{page}}</a></li>
+        }
+        <li class="page-item">
+            <a class="page-link" routerLinkActive="active" [routerLink]="['/home']">Siguiente</a>
+        </li>
+    </ul>
+    </nav>

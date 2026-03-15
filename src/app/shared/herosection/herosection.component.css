@@ -1,6 +1,19 @@
 .hero {
-    background-image: url('/images/bg-users.svg');
+    position: relative;
+    background: linear-gradient(90deg, #8642F5 0%, #A26EF7 100%);
     background-repeat: no-repeat, no-repeat;
     background-position: center, bottom right;
     background-size: cover, auto;
+
+    .text {
+        max-width: 800px;
+    }
+
+    img {
+        position: absolute;
+        right: -26.286px;
+        bottom: -82.205px;
+        width: 328px;
+        height: 328px;
+    }
 }

@@ -1,9 +1,15 @@
 <section class="container-lg d-flex flex-column pt-4">
     <app-herosection 
         title="Administra tu comunidad" 
-        subtitle="Gestiona los miembros de tu plataforma de manera centralizada con nuestras herramientas de administración.">
+        subtitle="Administra los miembros de tu plataforma de manera segura y sencilla. 
+        Puedes agregar nuevos usuarios, editar o eliminar los existentes.">
     </app-herosection>
 </section>
 <section class="container-lg d-flex flex-column pt-4">
+    <app-titlesection 
+        title="Listado de usuarios" 
+        subtitle="Elige un usuario para llevar a cabo las acciones disponibles.">
+    </app-titlesection>
     <app-cardlist></app-cardlist>
+    <app-paginator></app-paginator>
 </section>
