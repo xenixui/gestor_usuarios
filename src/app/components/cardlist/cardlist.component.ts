@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { CardComponent } from '../../shared/card/card.component';
+import { CardComponent } from '../card/card.component';
 import { IResponse, IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
 
@@ -16,9 +16,7 @@ export class CardlistComponent {
   async ngOnInit(){
     try {
       let response: IResponse = await this.userService.getAll();
-      console.log(response);
       this.arrUsers.set(response.results);
-      console.log(this.arrUsers);
     } catch(error) {
       console.log(error);
     }
