@@ -1,13 +1,17 @@
 <nav aria-label="Paginador">
     <ul class="pagination">
         <li class="page-item">
-            <a class="page-link" routerLinkActive="active" [routerLink]="['/home']" tabindex="-1">Anterior</a>
+            <button class="page-link" (click)="goToPrev()" [disabled]="currentPage() === 1">Anterior</button>
         </li>
         @for(page of pages(); track page) {
-            <li class="page-item"><a class="page-link" routerLinkActive="active" [routerLink]="['/home']">{{page}}</a></li>
+            <li class="page-item">
+                <button class="page-link" 
+                        (click)="pageChanged.emit(page); currentPage.set(page)"
+                        [class.active]="currentPage() === page">{{page}}</button>
+            </li>
         }
         <li class="page-item">
-            <a class="page-link" routerLinkActive="active" [routerLink]="['/home']">Siguiente</a>
+            <button class="page-link" (click)="goToNext()" [disabled]="currentPage() === totalPages()">Siguiente</button>
         </li>
     </ul>
-    </nav>
+</nav>
