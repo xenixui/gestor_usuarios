@@ -1,7 +1,10 @@
-<div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-    @for(user of arrUsers(); track user._id) {
-        <article class="col">
-            <app-card [miUser] = "user"></app-card>
-        </article>
-    }
-</div>
+<section>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+        @for(user of arrUsers(); track user._id) {
+            <article class="col">
+                <app-card [miUser] = "user"></app-card>
+            </article>
+        }
+    </div>
+    <app-paginator (pageChanged)="loadPage($event)"></app-paginator>
+</section>

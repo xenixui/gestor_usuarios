@@ -2,10 +2,11 @@ import { Component, inject, signal } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { IResponse, IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
+import { PaginatorComponent } from "../paginator/paginator.component";
 
 @Component({
   selector: 'app-cardlist',
-  imports: [CardComponent],
+  imports: [CardComponent, PaginatorComponent],
   templateUrl: './cardlist.component.html',
   styleUrl: './cardlist.component.css',
 })
@@ -14,8 +15,12 @@ export class CardlistComponent {
   userService = inject(UsersService);
 
   async ngOnInit(){
+    await this.loadPage(1)
+  }
+
+   async loadPage(page: number) {
     try {
-      let response: IResponse = await this.userService.getAll();
+      let response: IResponse = await this.userService.getAll(page);
       this.arrUsers.set(response.results);
     } catch(error) {
       console.log(error);

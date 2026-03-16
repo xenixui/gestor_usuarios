@@ -11,11 +11,13 @@ export class UsersService {
 
   private baseUrl: string = "https://peticiones.online/api/users";
 
-  getAll(): Promise<IResponse> {
-    return lastValueFrom(this.httpClient.get<IResponse>(this.baseUrl))
+  getAll(page: number = 1): Promise<IResponse> {
+    return lastValueFrom(this.httpClient.get<IResponse>(`${this.baseUrl}?page=${page}`))
   }
 
   getByID(id:string): Promise<IUser> {
     return lastValueFrom(this.httpClient.get<IUser>(`${this.baseUrl}/${id}`))
   }
+
+
 }
