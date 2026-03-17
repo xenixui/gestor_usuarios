@@ -3,7 +3,7 @@
         <h4>{{title()}}</h4>
         <p class="text-secondary">{{subtitle()}}</p>
     </div>
-    <app-badge>
-
-    </app-badge>
+    @if(showBadge()) {
+        <app-badge></app-badge>
+    }
 </div>

@@ -1,6 +1,43 @@
-<section class="container-lg d-flex flex-column pt-4">
-    <app-titlesection 
+<section class="container-lg d-flex flex-row pt-3">
+    <button type="button" class="btn btn-light rounded-3 align-self-start" [routerLink]="['/home']">
+            <i class="bi bi-arrow-left"></i>
+            Volver
+    </button>
+</section>
+<section class="container-lg d-flex flex-column pt-3">
+    <app-titlesection
         title="Datos de usuario" 
-        subtitle="Selecciona una acción que deseas realizar sobre el usuario.">
+        subtitle="Selecciona una acción que deseas realizar sobre el usuario."
+        [showBadge]="false">
     </app-titlesection>
 </section>
+<section class="container-lg d-flex flex-column flex-md-row pt-4 pb-4 gap-4">
+    <figure>
+        <img [src]="user()?.image" alt="{{user()?.first_name}} {{user()?.last_name}}">
+    </figure>
+    <div class="d-flex flex-column gap-3">
+        <div class="d-flex flex-column gap-1">
+            <h2>{{user()?.first_name}} {{user()?.last_name}}</h2>
+            <span class="small text-primary">Usuario genérico</span>
+        </div>
+        <div class="d-flex flex-column gap-2">
+            @if(user()) {
+                <app-listitem [icon]="'bi bi-key'" [label]="'ID'" [value]="user()!._id"></app-listitem>
+                <app-listitem [icon]="'bi bi-person'" [label]="'Nombre usuario'" [value]="user()!.username"></app-listitem>
+                <app-listitem [icon]="'bi bi-envelope'" [label]="'Correo electrónico'" [value]="user()!.email"></app-listitem>
+            }
+        </div>
+        <div class="d-flex flex-row gap-2">
+            <button type="button" class="btn btn-secondary rounded-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
+                <i class="bi bi-pencil"></i>
+                Editar
+            </button>
+            <button type="button" class="btn btn-outline-danger rounded-3" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Editar">
+                <i class="bi bi-trash"></i>
+                Eliminar
+            </button>
+        </div>
+    </div>
+</section>
+
