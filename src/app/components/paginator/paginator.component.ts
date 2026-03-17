@@ -1,11 +1,10 @@
-import { Component, inject, input, output, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive  } from '@angular/router';
+import { Component, inject, output, signal } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { IResponse } from '../../interfaces/iuser.interface';
 
 @Component({
   selector: 'app-paginator',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [],
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.css',
 })

@@ -10,5 +10,5 @@ import { BadgeComponent } from '../../components/badge/badge.component';
 export class TitlesectionComponent {
   title = input<string>('');
   subtitle = input<string>('');
-
+  showBadge = input<boolean>(true);
 }

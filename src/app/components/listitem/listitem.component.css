@@ -1,0 +1,10 @@
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: hsla(263, 90%, 92%, 1);
+    color: hsla(263, 90%, 51%, 1);
+}
