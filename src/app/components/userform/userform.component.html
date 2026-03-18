@@ -5,38 +5,48 @@
                 <div class="d-flex flex-column gap-1 mb-3">
                     <label for="first_name" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="first_name" placeholder="Ingrese el nombre" formControlName="first_name" required>
-                    @if((userForm.get('first_name')?.hasError('required') || userForm.get('first_name')?.hasError('minlength')) && userForm.get('first_name')?.touched) {
+                    @if((checkError('first_name', 'required') || checkError('first_name', 'minlength')) && checkTouched('first_name')) {
                         <div class="error-message">
-                            @if(userForm.get('first_name')?.hasError('required')) {
+                            @if(checkError('first_name', 'required')) {
                                 <span class="small error-message">Campo requerido</span>
                             }
-                            @if (userForm.get('first_name')?.hasError('minlength')){
+                            @if(checkError('first_name', 'minlength')) {
+                                <span class="small error-message">Longitud mínima de 3 caracteres</span>
+                            }
+                        </div>
+                    }
+                </div>
+                <div class="d-flex flex-column gap-1 mb-3">
+                    <label for="last_name" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" id="last_name" placeholder="Ingrese los apellidos" formControlName="last_name" required>
+                     @if((userForm.get('last_name')?.hasError('required') || userForm.get('last_name')?.hasError('minlength')) && userForm.get('last_name')?.touched) {
+                        <div class="error-message">
+                            @if(userForm.get('last_name')?.hasError('required')) {
+                                <span class="small error-message">Campo requerido</span>
+                            }
+                            @if (userForm.get('last_name')?.hasError('minlength')){
                                 <span class="small error-message">Longitud mínima de 3 caratcteres</span>
                             }
                         </div>
                     }
                 </div>
-                <div class="mb-3">
-                    <label for="last_name" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="last_name" placeholder="Ingrese los apellidos" formControlName="last_name" required>
-                </div>
-                <div class="mb-3">
+                <div class="d-flex flex-column gap-1 mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" placeholder="Ingrese el email" formControlName="email" required>
                 </div>
-                 <div class="mb-3">
+                 <div class="d-flex flex-column gap-1 mb-3">
                     <label for="username" class="form-label">Nombre usuario</label>
                     <input type="text" class="form-control" id="username" placeholder="Ingrese el nombre de usuario" formControlName="username" required>
                 </div>
-                 <div class="mb-3">
+                 <div class="d-flex flex-column gap-1 mb-3">
                     <label for="password" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" id="password" placeholder="Ingrese la contraseña" formControlName="password" required>
                 </div>
-                 <div class="mb-3">
+                 <div class="d-flex flex-column gap-1 mb-3">
                     <label for="confirm_password" class="form-label">Confirmar contraseña</label>
                     <input type="password" class="form-control" id="confirm_password" placeholder="Confirme la contraseña" formControlName="confirm_password" required>
                 </div>
-                <div class="mb-3">
+                <div class="d-flex flex-column gap-1 mb-3">
                     <label for="image" class="form-label">Imagen</label>
                     <input type="text" class="form-control" id="image" placeholder="Añada una ruta para la imagen" formControlName="image" required>
                 </div>

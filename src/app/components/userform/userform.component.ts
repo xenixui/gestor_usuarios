@@ -40,6 +40,14 @@ export class UserformComponent {
     }, [])
   }
 
+  checkError(controlName: string, errorname: string) {
+    return this.userForm.get(controlName)?.hasError(errorname);
+  }
+
+  checkTouched(controlName: string) {
+    return this.userForm.get(controlName)?.touched;
+  }
+
   onSubmit() {
     console.log(this.userForm.value);
     this.userForm.reset();
