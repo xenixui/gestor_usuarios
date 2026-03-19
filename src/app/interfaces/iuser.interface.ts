@@ -14,6 +14,7 @@ export interface IUser {
     username: string;
     email: string;
     image: string;
-    password: string;
+    password?: string;
+    confirm_password?: string;
 }
 
