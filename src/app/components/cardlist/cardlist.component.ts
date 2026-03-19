@@ -3,6 +3,7 @@ import { CardComponent } from '../card/card.component';
 import { IResponse, IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
 import { PaginatorComponent } from "../paginator/paginator.component";
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-cardlist',
@@ -22,8 +23,8 @@ export class CardlistComponent {
     try {
       let response: IResponse = await this.userService.getAll(page);
       this.arrUsers.set(response.results);
-    } catch(error) {
-      console.log(error);
+    } catch(data: any) {
+      toast(data.error.error);
     }
   }
 }

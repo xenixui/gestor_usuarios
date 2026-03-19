@@ -10,4 +10,8 @@ input.ng-invalid.ng-touched {
     background-color: hsla(354, 70%, 90%, 1);
     color: hsla(354, 70%, 15%, 1);
     font-size: 12px;
+    ul {
+        margin: 0;
+        padding-left: 20px;
+    }
 }

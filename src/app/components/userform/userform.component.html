@@ -8,10 +8,10 @@
                     @if((checkError('first_name', 'required') || checkError('first_name', 'minlength')) && checkTouched('first_name')) {
                         <div class="error-message">
                             @if(checkError('first_name', 'required')) {
-                                <span class="small error-message">Campo requerido</span>
+                                <span>Campo requerido</span>
                             }
                             @if(checkError('first_name', 'minlength')) {
-                                <span class="small error-message">Longitud mínima de 3 caracteres</span>
+                                <span>Longitud mínima de 3 caracteres</span>
                             }
                         </div>
                     }
@@ -19,13 +19,13 @@
                 <div class="d-flex flex-column gap-1 mb-3">
                     <label for="last_name" class="form-label">Apellidos</label>
                     <input type="text" class="form-control" id="last_name" placeholder="Ingrese los apellidos" formControlName="last_name" required>
-                     @if((userForm.get('last_name')?.hasError('required') || userForm.get('last_name')?.hasError('minlength')) && userForm.get('last_name')?.touched) {
+                     @if((checkError('last_name', 'required') || checkError('last_name', 'minlength')) && checkTouched('last_name')) {
                         <div class="error-message">
-                            @if(userForm.get('last_name')?.hasError('required')) {
-                                <span class="small error-message">Campo requerido</span>
+                            @if(checkError('last_name', 'required')) {
+                                <span>Campo requerido</span>
                             }
-                            @if (userForm.get('last_name')?.hasError('minlength')){
-                                <span class="small error-message">Longitud mínima de 3 caratcteres</span>
+                            @if(checkError('last_name', 'minlength')) {
+                                <span>Longitud mínima de 3 caracteres</span>
                             }
                         </div>
                     }
@@ -33,14 +33,50 @@
                 <div class="d-flex flex-column gap-1 mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" placeholder="Ingrese el email" formControlName="email" required>
+                    @if((checkError('email', 'required') || checkError('email', 'pattern')) && checkTouched('email')) {
+                        <div class="error-message">
+                            @if(checkError('email', 'required')) {
+                                <span>Campo requerido</span>
+                            }
+                            @if(checkError('email', 'pattern')) {
+                                <span>Introduzca un email válido</span>
+                            }
+                        </div>
+                    }
                 </div>
                  <div class="d-flex flex-column gap-1 mb-3">
                     <label for="username" class="form-label">Nombre usuario</label>
                     <input type="text" class="form-control" id="username" placeholder="Ingrese el nombre de usuario" formControlName="username" required>
+                    @if((checkError('username', 'required') || checkError('username', 'minlength')) && checkTouched('username')) {
+                        <div class="error-message">
+                            @if(checkError('username', 'required')) {
+                                <span>Campo requerido</span>
+                            }
+                            @if(checkError('username', 'minlength')) {
+                                <span>Longitud mínima de 6 caracteres</span>
+                            }
+                        </div>
+                    }
                 </div>
                  <div class="d-flex flex-column gap-1 mb-3">
                     <label for="password" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" id="password" placeholder="Ingrese la contraseña" formControlName="password" required>
+                     @if((checkError('password', 'required') || checkError('password', 'pattern')) && checkTouched('password')) {
+                        <div class="error-message">
+                            @if(checkError('password', 'required')) {
+                                <span>Campo requerido</span>
+                            }
+                            @if(checkError('password', 'pattern')) {
+                                    <ul>
+                                        <li>Mínimo 8 caracteres</li>
+                                        <li>Al menos una minúscula</li>
+                                        <li>Al menos una mayúscula</li>
+                                        <li>Al menos un número</li>
+                                        <li>Un símbolo especial</li>
+                                    </ul>
+                            }
+                        </div>
+                    }
                 </div>
                  <div class="d-flex flex-column gap-1 mb-3">
                     <label for="confirm_password" class="form-label">Confirmar contraseña</label>
@@ -49,6 +85,16 @@
                 <div class="d-flex flex-column gap-1 mb-3">
                     <label for="image" class="form-label">Imagen</label>
                     <input type="text" class="form-control" id="image" placeholder="Añada una ruta para la imagen" formControlName="image" required>
+                    @if((checkError('image', 'required') || checkError('image', 'pattern')) && checkTouched('image')) {
+                        <div class="error-message">
+                            @if(checkError('image', 'required')) {
+                                <span>Campo requerido</span>
+                            }
+                            @if(checkError('image', 'pattern')) {
+                                <span>Por favor, introduzca una URL válida</span>
+                            }
+                        </div>
+                    }
                 </div>
                 <input type="submit" class="btn btn-primary" value="Enviar" [disabled]="!userForm.valid">
             </form>

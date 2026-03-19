@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { toast } from 'ngx-sonner';
 import { first } from 'rxjs';
+import { UsersService } from '../../services/users.service';
+import { IUser } from '../../interfaces/iuser.interface';
 
 @Component({
   selector: 'app-userform',
@@ -9,8 +12,9 @@ import { first } from 'rxjs';
   styleUrl: './userform.component.css',
 })
 export class UserformComponent {
-  userForm: FormGroup
-
+  userForm: FormGroup;
+  userService = inject(UsersService);
+  
   constructor() {
     this.userForm = new FormGroup({
       first_name: new FormControl("", [
@@ -23,6 +27,7 @@ export class UserformComponent {
       ]),
       email: new FormControl("", [
          Validators.required,
+         Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
       ]),
       username: new FormControl("", [
          Validators.required,
@@ -30,12 +35,15 @@ export class UserformComponent {
       ]),
       password: new FormControl("", [
          Validators.required,
+         Validators.minLength(8),
+         Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/),
       ]),
       confirm_password: new FormControl("", [
          Validators.required,
       ]),
       image: new FormControl("", [
          Validators.required,
+         Validators.pattern(/^https?:\/\/.+\.(jpg|jpeg|png|webp|gif|svg)(\?.*)?$/i),
       ])
     }, [])
   }
@@ -48,8 +56,23 @@ export class UserformComponent {
     return this.userForm.get(controlName)?.touched;
   }
 
-  onSubmit() {
-    console.log(this.userForm.value);
+  passwordMatch() {
+    const password = this.userForm.get('password')?.value;
+    const confirmPassword = this.userForm.get('confirm_password')?.value;
+    if (password != confirmPassword) {
+
+    }
+    
+  }
+
+  async onSubmit() {
+    let userData: IUser = this.userForm.value;
+    try {
+      let response = await this.userService.createUser(userData);
+      toast.success(`Usuario creado correctamente: ${response.first_name}' ' ${response.last_name}`);
+    } catch (data:any) {
+      toast.error(data.error.error)
+    }
     this.userForm.reset();
   }
 }
