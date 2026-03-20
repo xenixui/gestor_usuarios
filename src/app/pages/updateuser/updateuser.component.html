@@ -1,1 +1,16 @@
-<p>updateuser works!</p>
+<section class="container-lg d-flex flex-row pt-3">
+    <button type="button" class="btn btn-light rounded-3 align-self-start" [routerLink]="['/home']">
+            <i class="bi bi-arrow-left"></i>
+            Inicio
+    </button>
+</section>
+<section class="container-lg d-flex flex-column pt-3">
+    <app-titlesection
+        title="Editar usuario" 
+        subtitle="Modifica los datos del usuario existente."
+        [showBadge]="false">
+    </app-titlesection>
+</section>
+<section class="container-lg d-flex flex-column pt-3">
+    <app-userform [userToEdit]="user()"></app-userform>
+</section>
