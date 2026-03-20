@@ -4,7 +4,7 @@ input.ng-invalid.ng-touched {
 
 .error-message {
     display: flex;
-    flex: column;
+    flex-direction: column;
     padding: 6px 12px  6px 12px;
     border-radius: 8px;
     background-color: hsla(354, 70%, 90%, 1);
