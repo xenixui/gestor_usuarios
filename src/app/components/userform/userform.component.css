@@ -5,11 +5,11 @@ input.ng-invalid.ng-touched {
 .error-message {
     display: flex;
     flex: column;
-    padding: 4px 8px  4px 8px;
+    padding: 6px 12px  6px 12px;
     border-radius: 8px;
     background-color: hsla(354, 70%, 90%, 1);
     color: hsla(354, 70%, 15%, 1);
-    font-size: 12px;
+    font-size: 14px;
     ul {
         margin: 0;
         padding-left: 20px;

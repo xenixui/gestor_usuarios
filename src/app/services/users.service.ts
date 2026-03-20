@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, Input } from '@angular/core';
 import { IResponse, IUser } from '../interfaces/iuser.interface';
 import { lastValueFrom } from 'rxjs';
 
@@ -22,5 +22,12 @@ export class UsersService {
   createUser(user: IUser): Promise<IUser> {
     return lastValueFrom(this.httpClient.post<IUser>(this.baseUrl, user))
   }
+
+  updateUser(user: IUser): Promise<IUser> {
+    return lastValueFrom(this.httpClient.put<IUser>(`${this.baseUrl}/${user._id}`, user))
+  }
+
+  
+
 
 }

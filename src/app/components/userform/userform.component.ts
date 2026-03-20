@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { toast } from 'ngx-sonner';
-import { first } from 'rxjs';
 import { UsersService } from '../../services/users.service';
 import { IUser } from '../../interfaces/iuser.interface';
 
@@ -45,7 +44,7 @@ export class UserformComponent {
          Validators.required,
          Validators.pattern(/^https?:\/\/.+\.(jpg|jpeg|png|webp|gif|svg)(\?.*)?$/i),
       ])
-    }, [])
+    }, [UserformComponent.passwordMatch])
   }
 
   checkError(controlName: string, errorname: string) {
@@ -56,20 +55,20 @@ export class UserformComponent {
     return this.userForm.get(controlName)?.touched;
   }
 
-  passwordMatch() {
-    const password = this.userForm.get('password')?.value;
-    const confirmPassword = this.userForm.get('confirm_password')?.value;
+  static passwordMatch(control: AbstractControl): ValidationErrors | null  {
+    const password = control.get('password')?.value;
+    const confirmPassword = control.get('confirm_password')?.value;
     if (password != confirmPassword) {
-
+      return {passwordMissMatch: true};
     }
-    
+    return null;
   }
 
   async onSubmit() {
     let userData: IUser = this.userForm.value;
     try {
       let response = await this.userService.createUser(userData);
-      toast.success(`Usuario creado correctamente: ${response.first_name}' ' ${response.last_name}`);
+      toast.success(`Usuario creado correctamente: ${response.first_name} ${response.last_name}`);
     } catch (data:any) {
       toast.error(data.error.error)
     }
