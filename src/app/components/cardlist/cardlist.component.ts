@@ -19,7 +19,7 @@ export class CardlistComponent {
     await this.loadPage(1)
   }
 
-   async loadPage(page: number) {
+  async loadPage(page: number) {
     try {
       let response: IResponse = await this.userService.getAll(page);
       this.arrUsers.set(response.results);

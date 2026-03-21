@@ -1,6 +1,7 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { IUser } from '../../interfaces/iuser.interface';
 import { RouterLink } from '@angular/router';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-card',
@@ -9,5 +10,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './card.component.css',
 })
 export class CardComponent {
-  miUser = input<IUser>();
+  userService = inject(UsersService);
+  user= input<IUser>();
 }

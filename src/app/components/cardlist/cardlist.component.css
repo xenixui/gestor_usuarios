@@ -1,3 +1,9 @@
 article {
     margin: 0;
 }
+
+.section-white {
+    background-color: white;
+    border-radius: 24px;
+    padding: 20px;
+}
