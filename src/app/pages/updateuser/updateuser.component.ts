@@ -4,10 +4,11 @@ import { RouterLink } from '@angular/router';
 import { UserformComponent } from "../../components/userform/userform.component";
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
+import { HighlightdataComponent } from '../../shared/highlightdata/highlightdata.component';
 
 @Component({
   selector: 'app-updateuser',
-  imports: [UserformComponent, RouterLink, TitlesectionComponent],
+  imports: [UserformComponent, RouterLink, TitlesectionComponent, HighlightdataComponent],
   templateUrl: './updateuser.component.html',
   styleUrl: './updateuser.component.css',
 })

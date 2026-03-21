@@ -1,23 +1,18 @@
 <div class="modal fade" id="modalContent" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header border-0">
                 <h5 class="modal-title">{{title()}} {{username()}}</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p>{{text()}}</p>
             </div>
-            <div class="modal-footer">
-                <button type="button" 
-                        class="btn btn-primary" 
-                        data-bs-dismiss="modal" 
-                        (click)="onClick()()">
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-light rounded-3" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary rounded-3" data-bs-dismiss="modal" (click)="onClick()()">
                     Aceptar
                 </button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
             </div>
         </div>
     </div>

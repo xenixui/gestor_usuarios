@@ -1,46 +1,80 @@
-<section class="container-lg d-flex flex-row pt-3">
+<section class="container-lg d-flex flex-row pt-4 pb-4 ps-4 pe-4">
     <button type="button" class="btn btn-light rounded-3 align-self-start" [routerLink]="['/home']">
             <i class="bi bi-arrow-left"></i>
             Inicio
     </button>
 </section>
-<section class="container-lg d-flex flex-column pt-3">
+<section class="container-lg d-flex flex-column pb-4 ps-4 pe-4">
     <app-titlesection
         title="Datos de usuario" 
         subtitle="Selecciona una acción que deseas realizar sobre el usuario."
         [showBadge]="false">
     </app-titlesection>
 </section>
-<section class="container-lg d-flex flex-column flex-md-row pt-4 pb-4 gap-4">
-    <figure>
-        <img [src]="user()?.image" alt="{{user()?.first_name}} {{user()?.last_name}}">
-    </figure>
-    <div class="d-flex flex-column gap-3">
-        <div class="d-flex flex-column gap-1">
-            <h2>{{user()?.first_name}} {{user()?.last_name}}</h2>
-            <span class="small text-primary">Usuario genérico</span>
+<section class="container-lg d-flex flex-column pb-4 ps-4 pe-4">
+    <div class="section-white d-flex flex-column flex-md-row gap-4">
+        <figure>
+            <img [src]="user()?.image" alt="{{user()?.first_name}} {{user()?.last_name}}">
+        </figure>
+        <div class="d-flex flex-column gap-3 flex-grow-1">
+            <div class="d-flex flex-column gap-1">
+                <h2>{{user()?.first_name}} {{user()?.last_name}}</h2>
+                <span class="small text-primary">Usuario genérico</span>
+            </div>
+            <div class="d-flex flex-column gap-2">
+                @if(user()) {
+                <app-listitem 
+                    [icon]="'bi bi-key'" 
+                    [label]="'ID'" 
+                    [value]="user()!._id">
+                </app-listitem>
+                <app-listitem 
+                    [icon]="'bi bi-person'" 
+                    [label]="'Nombre usuario'" 
+                    [value]="user()!.username">
+                </app-listitem>
+                <app-listitem 
+                    [icon]="'bi bi-envelope'" 
+                    [label]="'Correo electrónico'" 
+                    [value]="user()!.email">
+                </app-listitem>
+                }
+            </div>
+            <div class="d-flex flex-row gap-2 mt-auto">
+                <button 
+                    type="button" 
+                    class="btn btn-light rounded-3 w-50" 
+                    data-bs-toggle="tooltip" 
+                    data-bs-placement="top"
+                    title="Editar" 
+                    [routerLink]="['/updateuser', user()?._id]">
+                    <i class="bi bi-pencil"></i>
+                    Editar
+                </button>
+                <button 
+                    type="button" 
+                    class="btn btn-outline-danger rounded-3 w-50" 
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalContent" 
+                    (click)="$event.stopPropagation(); userService.openDeleteModal(user()!)"
+                    title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                    Eliminar
+                </button>
+            </div>
         </div>
-        <div class="d-flex flex-column gap-2">
-            @if(user()) {
-                <app-listitem [icon]="'bi bi-key'" [label]="'ID'" [value]="user()!._id"></app-listitem>
-                <app-listitem [icon]="'bi bi-person'" [label]="'Nombre usuario'" [value]="user()!.username"></app-listitem>
-                <app-listitem [icon]="'bi bi-envelope'" [label]="'Correo electrónico'" [value]="user()!.email"></app-listitem>
-            }
-        </div>
-        <div class="d-flex flex-row gap-2">
-            <button type="button" class="btn btn-secondary rounded-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" [routerLink]="['/updateuser', user()?._id]">
-                <i class="bi bi-pencil"></i>
-                Editar
-            </button>
-            <button type="button" 
-                    class="btn btn-outline-danger rounded-3" 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#modalContent"
-                    (click)="$event.stopPropagation(); userService.openDeleteModal(user()!)" 
-                    title="Eliminar"> 
-                <i class="bi bi-trash"></i>
-                Eliminar
-            </button>
+    </div>
+</section>
+<section class="container-lg d-flex flex-column pb-4 ps-4 pe-4">
+    <div class="section-white d-flex flex-column gap-4">
+        <h4>Sugerencias personalizadas</h4>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <app-highlightdata title="Actividad del usuario"
+                subtitle="Consulta el historial y las acciones realizadas por este usuario en la plataforma.">
+            </app-highlightdata>
+            <app-highlightdata title="Información adicional"
+                subtitle="Datos complementarios y detalles sobre el perfil de este usuario.">
+            </app-highlightdata>
         </div>
     </div>
 </section>
