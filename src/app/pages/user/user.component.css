@@ -4,6 +4,7 @@ figure {
     display: flex;
     width: 25%;
     height: auto;
+    
     img {
         display: block;
         width: 100%;

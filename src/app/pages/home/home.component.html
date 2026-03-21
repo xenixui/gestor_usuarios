@@ -1,16 +1,31 @@
-<section class="container-lg d-flex flex-column pt-4 pb-4">
+<section class="container-lg d-flex flex-column pt-4 pb-4 ps-4 pe-4">
     <app-herosection 
         title="Administra tu comunidad" 
         subtitle="Administra los miembros de tu plataforma de manera segura y sencilla. 
         Puedes agregar nuevos usuarios, editar o eliminar los existentes.">
     </app-herosection>
 </section>
-<section class="container-lg d-flex flex-column pb-4">
+<section class="container-lg d-flex flex-column pb-4 ps-4 pe-4">
     <app-titlesection 
         title="Listado de usuarios" 
         subtitle="Elige un usuario para llevar a cabo las acciones disponibles.">
     </app-titlesection>
 </section>
-<section class="container-lg d-flex flex-column pb-4">
+<section class="container-lg d-flex flex-column pb-4 ps-4 pe-4">
     <app-cardlist></app-cardlist>
+</section>
+<section class="container-lg d-flex flex-column pb-4 ps-4 pe-4">
+    <div class="section-white d-flex flex-column gap-4">
+        <h4>Sugerencias personalizadas</h4>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <app-highlightdata 
+                title="Estadísticas" 
+                subtitle="Accede a los indicadores más importantes sobre el estado de tu comunidad.">
+            </app-highlightdata>
+            <app-highlightdata 
+                title="Tendencias de usuarios" 
+                subtitle="Monitoriza el crecimiento y la actividad de tu comunidad en tiempo real.">
+            </app-highlightdata>
+        </div>
+</div>
 </section>

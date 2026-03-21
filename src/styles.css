@@ -9,6 +9,12 @@
     --bs-btn-active-border-color: #401782;
     --bs-link-color: #6712F2;
     --bs-link-hover-color: #5314B8; 
+
+    /*Custom colors*/
+    --primary-container: hsla(263, 90%, 92%, 1);
+    --on-primary-container: hsla(263, 70%, 15%, 1);
+    --secondary-container: hsla(27, 98%, 90%, 1);
+    --on-secondary-container: hsla(27, 98%, 15%, 1);
 }
 
 body, html {
@@ -35,5 +41,29 @@ h1, h2, h3, h4, h5, p, span {
     --bs-pagination-active-bg: hsl(270, 90%, 51%);
     --bs-pagination-active-border-color: hsl(270, 90%, 51%); 
 }
+
+.btn-primary {
+    --bs-btn-bg: #6712F2;
+    --bs-btn-border-color: #6712F2;
+    --bs-btn-hover-bg: #5314B8;
+    --bs-btn-hover-border-color: #5314B8;
+    --bs-btn-active-bg: #401782;
+    --bs-btn-active-border-color: #401782;
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-active-color: #fff; 
+}
+
+.btn-primary:disabled {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    opacity: 0.5; }
+
+.section-white {
+    background-color: white;
+    border-radius: 24px;
+    padding: 24px;
+}
+
 
     

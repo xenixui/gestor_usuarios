@@ -1,16 +1,25 @@
-<section class="container-lg d-flex flex-row pt-3">
+<section class="container-lg d-flex flex-row pt-4 pb-4 ps-4 pe-4">
     <button type="button" class="btn btn-light rounded-3 align-self-start" [routerLink]="['/home']">
             <i class="bi bi-arrow-left"></i>
             Inicio
     </button>
 </section>
-<section class="container-lg d-flex flex-column pt-3">
+<section class="container-lg d-flex flex-column pb-4 ps-4 pe-4">
     <app-titlesection
         title="Editar usuario" 
         subtitle="Modifica los datos del usuario existente."
         [showBadge]="false">
     </app-titlesection>
 </section>
-<section class="container-lg d-flex flex-column pt-3">
-    <app-userform [userToEdit]="user()"></app-userform>
+<section class="container-lg d-flex flex-column pb-4 ps-4 pe-4">
+    <div class="col-12 col-md-6 mx-auto">
+        <app-userform [userToEdit]="user()"></app-userform>
+    </div>
+</section>
+<section class="container-lg d-flex flex-column pb-4 ps-4 pe-4">
+    <div class="section-white col-12 col-md-6 mx-auto">
+        <app-highlightdata title="¿Cómo editar un usuario?"
+            subtitle="Modifica los campos que desees actualizar. Los cambios se guardarán al pulsar el botón Enviar.">
+        </app-highlightdata>
+    </div>
 </section>

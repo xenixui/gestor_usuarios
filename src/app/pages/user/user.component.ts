@@ -4,10 +4,11 @@ import { UsersService } from '../../services/users.service';
 import { IUser } from '../../interfaces/iuser.interface';
 import { RouterLink } from '@angular/router';
 import { ListitemComponent } from "../../components/listitem/listitem.component";
+import { HighlightdataComponent } from '../../shared/highlightdata/highlightdata.component';
 
 @Component({
   selector: 'app-user',
-  imports: [TitlesectionComponent, RouterLink, ListitemComponent],
+  imports: [TitlesectionComponent, RouterLink, ListitemComponent, HighlightdataComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })
