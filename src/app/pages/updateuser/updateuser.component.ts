@@ -12,7 +12,7 @@ import { UsersService } from '../../services/users.service';
   styleUrl: './updateuser.component.css',
 })
 export class UpdateuserComponent {
-   userService = inject(UsersService);
+  userService = inject(UsersService);
   user = signal<IUser | null>(null);
   _id = input<string>();
 

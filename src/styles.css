@@ -1,13 +1,15 @@
 :root {
-    --bs-primary: #6610F2;
-    --bs-primary-rgb: 102, 16, 242;
-    --bs-btn-bg: #6610F2;
-    --bs-btn-border-color: #6610F2;
-    --bs-btn-hover-bg: #500BC1;
-    --bs-btn-hover-border-color: #500BC1;
-    --bs-btn-active-bg: #3C0891;
-    --bs-btn-active-border-color: #3C0891;
-  }
+    --bs-primary: #6712F2;
+    --bs-primary-rgb: 103, 18, 242;
+    --bs-btn-bg: #6712F2;
+    --bs-btn-border-color: #6712F2;
+    --bs-btn-hover-bg: #5314B8;
+    --bs-btn-hover-border-color: #5314B8;
+    --bs-btn-active-bg: #401782;
+    --bs-btn-active-border-color: #401782;
+    --bs-link-color: #6712F2;
+    --bs-link-hover-color: #5314B8; 
+}
 
 body, html {
     min-height: 100vh;
@@ -23,4 +25,15 @@ app-root {
 h1, h2, h3, h4, h5, p, span {
     margin: 0;
     padding: 0;
-  }
+}
+
+.pagination {
+    --bs-pagination-color: hsl(270, 90%, 51%);
+    --bs-pagination-hover-color: #fff;
+    --bs-pagination-hover-bg: hsl(270, 90%, 51%);
+    --bs-pagination-active-color: #fff;
+    --bs-pagination-active-bg: hsl(270, 90%, 51%);
+    --bs-pagination-active-border-color: hsl(270, 90%, 51%); 
+}
+
+    

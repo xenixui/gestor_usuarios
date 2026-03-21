@@ -4,7 +4,13 @@
 <main class="bg-light">
   <router-outlet/>
 </main>
-<ngx-sonner-toaster richColors position="top-center"></ngx-sonner-toaster>
+  <ngx-sonner-toaster richColors position="top-center"></ngx-sonner-toaster>
+  <app-modal 
+      title="Eliminar usuario: "
+      [username]="usersService.userToDelete()?.first_name + ' ' + usersService.userToDelete()?.last_name"
+      text="¿Estás seguro que deseas eliminar el usuario?"
+      [onClick]="onDelete.bind(this)">
+  </app-modal>
 <footer>
   <app-footer></app-footer>
 </footer>
