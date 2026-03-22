@@ -94,7 +94,7 @@ export class UserformComponent {
       if(this.isEditing()) {
         userData = { ...userData, _id: this.userToEdit()!._id };
         let response = await this.userService.updateUser(userData);
-        toast.success(`Datos de usuario actualizados: ${response.username} ${response.last_name}`);
+        toast.success(`Datos de usuario actualizados: ${response.first_name} ${response.last_name}`);
         this.router.navigate([`user/${userData._id}`]);
       } else {
         let response = await this.userService.createUser(userData);

@@ -11,5 +11,6 @@ export const routes: Routes = [
     {path: "user/:_id", component: UserComponent},
     {path: "newuser", component: NewuserComponent},
     {path: "updateuser/:_id", component: UpdateuserComponent},
-    {path: "**", component: Error404Component}
+    {path: "404", component: Error404Component},
+    {path: "**", redirectTo: "404"}
 ];
