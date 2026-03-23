@@ -1,6 +1,34 @@
 # GestorUsuarios
 
+A user management application built with Angular for managing user data, authentication, and administration tasks.
+
+## Features
+
+- Create, read, update, and delete (CRUD) user operations
+- User profile management
+- Responsive user interface
+- Real-time data synchronization
+
+## Project Overview
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+
+**Technology Stack:**
+- Angular 21.1.2
+- TypeScript
+- RxJS
+- Vitest (testing framework)
+
+## Prerequisites
+
+- Node.js (v18 or higher)
+- Angular CLI installed globally
+
+## Installation
+
+```bash
+npm install
+```
 
 ## Development server
 
@@ -53,6 +81,19 @@ ng e2e
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   ├── services/
+│   ├── models/
+│   └── app.component.ts
+├── assets/
+└── styles/
+```
 
 ## Additional Resources
 

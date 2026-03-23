@@ -1,4 +1,5 @@
 :root {
+    /*Boostrap variables overwrite*/
     --bs-primary: #6712F2;
     --bs-primary-rgb: 103, 18, 242;
     --bs-btn-bg: #6712F2;
@@ -10,7 +11,7 @@
     --bs-link-color: #6712F2;
     --bs-link-hover-color: #5314B8; 
 
-    /*Custom colors*/
+    /*Custom variables*/
     --primary-container: hsla(263, 90%, 92%, 1);
     --on-primary-container: hsla(263, 70%, 15%, 1);
     --secondary-container: hsla(27, 98%, 90%, 1);
