@@ -11,8 +11,13 @@ export class UsersService {
   private baseUrl: string = "https://peticiones.online/api/users";
   userToDelete = signal<IUser | null>(null);
 
-  getAll(page: number = 1): Promise<IResponse> {
-    return lastValueFrom(this.httpClient.get<IResponse>(`${this.baseUrl}?page=${page}`))
+  async getAll(page: number = 1): Promise<IResponse> {
+    try {
+      return await lastValueFrom(this.httpClient.get<IResponse>(`${this.baseUrl}?page=${page}`))
+    } catch (error) {
+      console.error('Error fetching users:', error);
+      throw error;
+    }
   }
 
   getByID(id:string): Promise<IUser> {
