@@ -8,9 +8,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class UsersService {
   private httpClient = inject(HttpClient);
-
   private baseUrl: string = "https://peticiones.online/api/users";
-
   userToDelete = signal<IUser | null>(null);
 
   getAll(page: number = 1): Promise<IResponse> {
@@ -37,3 +35,4 @@ export class UsersService {
     this.userToDelete.set(user);
   }
 }
+
